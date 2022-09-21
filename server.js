@@ -6,7 +6,7 @@ api.listen(PORT, () => {
     console.log(`Sever is listening on port ${PORT}`);
 });
 
-api.get('/', async(req, res) => {
+api.get('/', async(_req, res) => {
     return res.status(200).json({
         timestamp: new Date().toISOString(),
         status: res.statusCode,
@@ -19,7 +19,7 @@ api.use(async (req, res) => {
         timestamp: new Date().toISOString(),
         status: res.statusCode,
         message: 'Unrecognized path',
-        //path: req.path
+        path: req.path
     });
 });
 
